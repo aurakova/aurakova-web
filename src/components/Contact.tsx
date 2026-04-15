@@ -1,19 +1,27 @@
 'use client'
 
 import { useState } from 'react'
+import { submitContactForm } from '@/app/actions/contact'
 
 export default function Contact() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
-    // Placeholder para la integración real (e.g. Next.js Server Action o API Route)
-    setTimeout(() => {
+    
+    try {
+      const formData = new FormData(e.currentTarget)
+      const res = await submitContactForm(formData)
+      if (res.success) {
+        setSuccess(true)
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+    } finally {
       setLoading(false)
-      setSuccess(true)
-    }, 1500)
+    }
   }
 
   return (
@@ -143,19 +151,19 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                   <div className="form-group">
                     <label htmlFor="name" className="form-label">Tu nombre</label>
-                    <input type="text" id="name" required className="form-input" placeholder="Ej. Javier Gómez" />
+                    <input type="text" id="name" name="name" required className="form-input" placeholder="Ej. Javier Gómez" />
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="company" className="form-label">Nombre de tu empresa</label>
-                    <input type="text" id="company" required className="form-input" placeholder="Ej. Acme Corp" />
+                    <input type="text" id="company" name="company" required className="form-input" placeholder="Ej. Acme Corp" />
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }} className="form-row">
                     <div className="form-group">
                       <label htmlFor="size" className="form-label">Tamaño de empresa</label>
-                      <select id="size" required className="form-select">
-                        <option value="" disabled selected>Selecciona una opción</option>
+                      <select id="size" name="size" required className="form-select" defaultValue="">
+                        <option value="" disabled>Selecciona una opción</option>
                         <option value="1-10">1–10 empleados</option>
                         <option value="11-50">11–50 empleados</option>
                         <option value="51-200">51–200 empleados</option>
@@ -166,8 +174,8 @@ export default function Contact() {
 
                     <div className="form-group">
                       <label htmlFor="country" className="form-label">País</label>
-                      <select id="country" required className="form-select">
-                        <option value="" disabled selected>Selecciona tu país</option>
+                      <select id="country" name="country" required className="form-select" defaultValue="">
+                        <option value="" disabled>Selecciona tu país</option>
                         <option value="es">España</option>
                         <option value="mx">México</option>
                         <option value="ar">Argentina</option>
@@ -181,8 +189,8 @@ export default function Contact() {
 
                   <div className="form-group">
                     <label htmlFor="challenge" className="form-label">Principal desafío</label>
-                    <select id="challenge" required className="form-select">
-                      <option value="" disabled selected>¿Qué buscas resolver?</option>
+                    <select id="challenge" name="challenge" required className="form-select" defaultValue="">
+                      <option value="" disabled>¿Qué buscas resolver?</option>
                       <option value="auto">Quiero automatizar procesos manuales en mi operación</option>
                       <option value="leads">Necesito generar más leads cualificados con menor coste</option>
                       <option value="strategy">Quiero una estrategia de IA pero no sé por dónde empezar</option>
@@ -218,7 +226,7 @@ export default function Contact() {
         .form-label {
           font-size: 0.875rem;
           font-weight: 500;
-          color: '#94A3B8';
+          color: #94A3B8;
         }
         .form-input, .form-select {
           background: #080D12;

@@ -7,7 +7,7 @@ export default function Footer() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repaet(12, 1fr)',
+            gridTemplateColumns: 'repeat(12, 1fr)',
             gap: '48px',
             marginBottom: '64px',
           }}
@@ -15,32 +15,13 @@ export default function Footer() {
         >
           {/* Brand Column */}
           <div style={{ gridColumn: 'span 4' }} className="footer-brand">
-            <div
-              style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}
-            >
-              <div
-                style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: '6px',
-                  background: 'linear-gradient(135deg, #22D3EE 0%, #2563EB 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <span style={{ color: '#040608', fontWeight: 700, fontSize: '13px' }}>A</span>
-              </div>
-              <span
-                style={{
-                  fontSize: '1rem',
-                  fontWeight: 700,
-                  color: '#F0F4F8',
-                  letterSpacing: '-0.02em',
-                }}
-              >
-                Aurakova
-              </span>
+            <div style={{ marginBottom: '24px' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo.svg"
+                alt="Aurakova"
+                style={{ height: '32px', width: 'auto' }}
+              />
             </div>
             
             <p style={{ color: '#64748B', fontSize: '0.875rem', lineHeight: 1.6, maxWidth: '280px' }}>
@@ -98,7 +79,7 @@ export default function Footer() {
             © {currentYear} Aurakova. Todos los derechos reservados.
           </p>
           <span className="mono-tag" style={{ fontSize: '0.75rem', opacity: 0.6 }}>
-            Consultoría de IA B2B · España y LATAM
+            Aurakova · Consultoría de IA para empresas B2B · España y LATAM
           </span>
         </div>
       </div>

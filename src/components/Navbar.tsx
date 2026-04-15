@@ -27,31 +27,15 @@ export default function Navbar() {
         {/* Logo */}
         <a
           href="/"
-          style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
+          style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+          aria-label="Aurakova — volver al inicio"
         >
-          <div
-            style={{
-              width: '32px',
-              height: '32px',
-              borderRadius: '8px',
-              background: 'linear-gradient(135deg, #22D3EE 0%, #2563EB 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <span style={{ color: '#040608', fontWeight: 700, fontSize: '14px' }}>A</span>
-          </div>
-          <span
-            style={{
-              fontSize: '1.125rem',
-              fontWeight: 700,
-              color: '#F0F4F8',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Aurakova
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.svg"
+            alt="Aurakova"
+            style={{ height: '36px', width: 'auto' }}
+          />
         </a>
 
         {/* Desktop Nav */}

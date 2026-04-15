@@ -23,22 +23,22 @@ const dontDo = [
   {
     negative: 'No vendemos formaciones ni cursos',
     rationale: 'Nuestra función es ejecutar, no enseñar. Si quieres formación interna, hay mejores proveedores para eso.',
-    icon: '📚',
+    symbol: '✕',
   },
   {
     negative: 'No implementamos IA si no tiene sentido para tu negocio',
     rationale: 'Si en el diagnóstico vemos que no necesitas IA, te lo decimos. Preferimos perder una venta que entregarte algo que no funciona.',
-    icon: '🎯',
+    symbol: '✕',
   },
   {
     negative: 'No hacemos apps móviles nativas',
     rationale: 'Estamos especializados en operaciones, procesos y crecimiento B2B. Las apps nativas requieren un equipo distinto.',
-    icon: '📱',
+    symbol: '✕',
   },
   {
     negative: 'No pedimos un proyecto grande de entrada',
     rationale: 'Empezamos con un piloto. Escalamos solo cuando los datos lo justifican. Sin contratos de mantenimiento obligatorios.',
-    icon: '📝',
+    symbol: '✕',
   },
 ]
 
@@ -156,11 +156,13 @@ export default function Metrics() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '1.125rem',
                     flexShrink: 0,
+                    color: '#EF4444',
+                    fontSize: '1rem',
+                    fontWeight: 700,
                   }}
                 >
-                  <span style={{ filter: 'grayscale(0.3)' }}>{item.icon}</span>
+                  {item.symbol}
                 </div>
                 <div>
                   <p style={{ color: '#F0F4F8', fontWeight: 600, fontSize: '1rem', marginBottom: '8px', lineHeight: 1.4 }}>
