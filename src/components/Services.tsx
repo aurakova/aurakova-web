@@ -1,200 +1,58 @@
-const services = [
-  {
-    id: 'consultoria',
-    number: '01',
-    title: 'Consultoría IA Estratégica',
-    description: 'Diagnosticamos tu operación e identificamos dónde la IA genera impacto medible — antes de invertir un euro en implementación.',
-    bullets: [
-      { pain: 'Procesos manuales sin mapear', solution: 'identificados y priorizados por ROI' },
-      { pain: 'Decisiones basadas en intuición', solution: 'respaldadas por dashboards en tiempo real' },
-      { pain: 'IA "de moda" sin dirección', solution: 'plan de implementación con hitos medibles' },
-    ],
-    href: '/consultoria-ia',
-    accent: '#22D3EE',
-    large: true,
-  },
-  {
-    id: 'automatizacion',
-    number: '02',
-    title: 'Automatización de Procesos',
-    description: 'Eliminamos trabajo manual repetitivo en facturación, soporte y reportes con flujos inteligentes que usan tus herramientas actuales.',
-    bullets: [
-      { pain: 'Facturación manual de 4 horas', solution: 'automatizada en 48 h de configuración' },
-      { pain: '200 tickets semanales', solution: '70% resueltos sin intervención humana' },
-      { pain: 'Reportes de 2 días', solution: 'generados en 15 minutos automáticamente' },
-    ],
-    href: '/automatizacion-procesos-ia',
-    accent: '#0EA5E9',
-    large: false,
-  },
-  {
-    id: 'marketing',
-    number: '03',
-    title: 'Marketing y Growth con IA',
-    description: 'Más leads cualificados y menor coste por adquisición con campañas que aprenden y se optimizan solas.',
-    bullets: [
-      { pain: 'CPL alto con campañas genéricas', solution: 'segmentación predictiva que reduce CPL hasta 40%' },
-      { pain: 'Contenido producido a mano', solution: 'flujos de creación y distribución automatizados' },
-      { pain: 'Pipeline irregular', solution: 'captación constante con scoring automático de leads' },
-    ],
-    href: '/marketing-growth-ia',
-    accent: '#2563EB',
-    large: false,
-  },
-]
+import { Zap, BarChart3, ShieldCheck } from "lucide-react";
 
 export default function Services() {
   return (
-    <section id="servicios" className="section-surface section-py">
-      <div className="container">
-        <div style={{ marginBottom: '56px' }}>
-          <h2>
+    <section id="servicios" className="py-24 bg-slate-950 relative overflow-hidden">
+      {/* Fondo sutil decorativo opcional */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-500/10 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Encabezado */}
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
             Tres formas concretas de reducir costes operativos con IA
           </h2>
-          <p style={{ color: '#94A3B8', marginTop: '12px', maxWidth: '560px', fontSize: '1.0625rem' }}>
-            Sin plataformas propietarias. Sin lock-in. Con herramientas que ya existen en el mercado.
+          <p className="text-slate-400 text-lg">
+            Dejamos de lado la teoría y nos enfocamos en implementaciones que impactan directamente en tu cuenta de resultados desde la primera semana.
           </p>
         </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(12, 1fr)',
-            gap: '20px',
-          }}
-          className="services-grid"
-        >
-          {/* Primary card — 6 cols */}
-          <div
-            className="card services-primary"
-            style={{
-              gridColumn: 'span 6',
-              padding: '36px',
-              position: 'relative',
-              overflow: 'hidden',
-            }}
-          >
-            <div
-              aria-hidden="true"
-              style={{
-                position: 'absolute',
-                top: 0,
-                right: 0,
-                width: '200px',
-                height: '200px',
-                background: `radial-gradient(circle at top right, ${services[0].accent}18 0%, transparent 70%)`,
-                pointerEvents: 'none',
-              }}
-            />
-            <ServiceCard service={services[0]} large />
+        {/* Grid de Tarjetas */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Tarjeta 1 */}
+          <div className="group p-8 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10" style={{ backdropFilter: 'blur(8px)' }}>
+            <div className="w-12 h-12 bg-cyan-950/50 rounded-xl flex items-center justify-center mb-6 border border-cyan-500/20 group-hover:bg-cyan-500/10 transition-colors">
+              <Zap className="w-6 h-6 text-cyan-400" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-3">Automatización Inteligente</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Eliminamos tareas manuales repetitivas integrando IA que trabaja 24/7 sin errores, liberando a tu equipo para tareas estratégicas.
+            </p>
           </div>
 
-          {/* Secondary cards — 3 cols each */}
-          {services.slice(1).map((s) => (
-            <div
-              key={s.id}
-              className="card services-secondary"
-              style={{ gridColumn: 'span 3', padding: '28px', position: 'relative', overflow: 'hidden' }}
-            >
-              <div
-                aria-hidden="true"
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  right: 0,
-                  width: '120px',
-                  height: '120px',
-                  background: `radial-gradient(circle at top right, ${s.accent}14 0%, transparent 70%)`,
-                  pointerEvents: 'none',
-                }}
-              />
-              <ServiceCard service={s} large={false} />
+          {/* Tarjeta 2 */}
+          <div className="group p-8 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10" style={{ backdropFilter: 'blur(8px)' }}>
+            <div className="w-12 h-12 bg-cyan-950/50 rounded-xl flex items-center justify-center mb-6 border border-cyan-500/20 group-hover:bg-cyan-500/10 transition-colors">
+              <BarChart3 className="w-6 h-6 text-cyan-400" />
             </div>
-          ))}
+            <h3 className="text-xl font-bold text-white mb-3">Optimización de Recursos</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Algoritmos predictivos que analizan tus operativas actuales para detectar cuellos de botella y redistribuir el esfuerzo donde genera mayor valor económico.
+            </p>
+          </div>
+
+          {/* Tarjeta 3 */}
+          <div className="group p-8 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10" style={{ backdropFilter: 'blur(8px)' }}>
+            <div className="w-12 h-12 bg-cyan-950/50 rounded-xl flex items-center justify-center mb-6 border border-cyan-500/20 group-hover:bg-cyan-500/10 transition-colors">
+              <ShieldCheck className="w-6 h-6 text-cyan-400" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-3">Reducción de Errores</h3>
+            <p className="text-slate-400 leading-relaxed">
+              La fatiga humana causa costosos errores. Nuestros sistemas aseguran una precisión del 99.9% en procesos críticos, reduciendo devoluciones y rectificaciones.
+            </p>
+          </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 1024px) {
-          .services-primary { grid-column: span 12 !important; }
-          .services-secondary { grid-column: span 6 !important; }
-        }
-        @media (max-width: 640px) {
-          .services-grid { grid-template-columns: 1fr !important; }
-          .services-primary, .services-secondary { grid-column: span 1 !important; }
-        }
-      `}</style>
     </section>
-  )
-}
-
-function ServiceCard({
-  service,
-  large,
-}: {
-  service: (typeof services)[number]
-  large: boolean
-}) {
-  return (
-    <div style={{ position: 'relative', zIndex: 1 }}>
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '20px' }}>
-        <span className="mono-tag">{service.number}</span>
-        <div
-          style={{
-            width: '36px',
-            height: '36px',
-            borderRadius: '8px',
-            background: `${service.accent}18`,
-            border: `1px solid ${service.accent}30`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <div
-            style={{
-              width: '12px',
-              height: '12px',
-              borderRadius: '50%',
-              background: service.accent,
-              opacity: 0.8,
-            }}
-          />
-        </div>
-      </div>
-
-      <h3 style={{ color: '#F0F4F8', marginBottom: '12px' }}>{service.title}</h3>
-
-      <p
-        style={{
-          color: '#94A3B8',
-          fontSize: large ? '1rem' : '0.9375rem',
-          lineHeight: 1.6,
-          marginBottom: '24px',
-        }}
-      >
-        {service.description}
-      </p>
-
-      <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '28px' }}>
-        {service.bullets.map((b, i) => (
-          <li key={i} style={{ fontSize: '0.875rem', color: '#94A3B8', lineHeight: 1.5 }}>
-            <span style={{ color: '#64748B', textDecoration: 'line-through', marginRight: '6px' }}>
-              {b.pain}
-            </span>
-            <span style={{ color: service.accent, margin: '0 6px' }}>→</span>
-            <span style={{ color: '#F0F4F8', fontWeight: 500 }}>{b.solution}</span>
-          </li>
-        ))}
-      </ul>
-
-      <a
-        href={service.href}
-        className="btn-secondary"
-        style={{ color: service.accent }}
-      >
-        Ver cómo funciona →
-      </a>
-    </div>
-  )
+  );
 }

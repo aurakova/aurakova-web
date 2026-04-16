@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Logos from '@/components/Logos'
@@ -11,49 +14,105 @@ import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
+const fadeUpProps = {
+  initial: { opacity: 0, y: 50 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-100px" },
+};
+
 export default function Home() {
   return (
     <>
       <Navbar />
       
-      <main>
+      <main className="min-h-screen bg-slate-950 text-white selection:bg-cyan-500/30">
         {/* §1 Hero */}
-        <Hero />
+        <motion.div
+          {...fadeUpProps}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <Hero />
+        </motion.div>
         
         {/* Separador crítico 1px gradiente entre Hero y Logos */}
         <div className="gradient-separator" aria-hidden="true" />
         
         {/* §2 Logos */}
-        <Logos />
+        <motion.div
+          {...fadeUpProps}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        >
+          <Logos />
+        </motion.div>
         
         <div className="h-px bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/30 to-transparent" />
         
         {/* §3 Servicios */}
-        <Services />
+        <motion.div
+          {...fadeUpProps}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
+          <Services />
+        </motion.div>
         
         {/* §4 Roles */}
-        <UseCases />
+        <motion.div
+          {...fadeUpProps}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        >
+          <UseCases />
+        </motion.div>
         
         {/* §5 Piloto */}
-        <Process />
+        <motion.div
+          {...fadeUpProps}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        >
+          <Process />
+        </motion.div>
         
         {/* Separador crítico 1px gradiente entre Piloto y WhyUs/Lock-In */}
         <div className="gradient-separator" aria-hidden="true" />
         
         {/* §6 Lock-in (+ Por qué nosotros) */}
-        <WhyUs />
+        <motion.div
+          {...fadeUpProps}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        >
+          <WhyUs />
+        </motion.div>
         
         {/* §7 Métricas + §8 No Hacemos */}
-        <Metrics />
+        <motion.div
+          {...fadeUpProps}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        >
+          <Metrics />
+        </motion.div>
         
         {/* §9 Equipo */}
-        <Team />
+        <motion.div
+          {...fadeUpProps}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        >
+          <Team />
+        </motion.div>
         
         {/* §10 FAQ */}
-        <FAQ />
+        <motion.div
+          {...fadeUpProps}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        >
+          <FAQ />
+        </motion.div>
         
         {/* §11 CTA Final */}
-        <Contact />
+        <motion.div
+          {...fadeUpProps}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        >
+          <Contact />
+        </motion.div>
       </main>
 
       {/* Footer */}

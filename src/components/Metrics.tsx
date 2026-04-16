@@ -1,20 +1,20 @@
 const metrics = [
   {
     value: '+47%',
-    label: 'leads cualificados generados en 60 días',
-    context: 'Estrategia de campañas optimizadas · Empresa B2B industrial',
+    label: 'Leads Cualificados',
+    context: 'Generados en 60 días. Estrategia de campañas optimizadas para empresa B2B.',
     color: '#22D3EE',
   },
   {
     value: '38%',
-    label: 'reducción en tiempo de respuesta a prospectos',
-    context: 'Automatización de seguimiento comercial · Servicios financieros · 6 semanas',
+    label: 'Reducción de Tiempo',
+    context: 'En respuesta a prospectos. Automatización de seguimiento en 6 semanas.',
     color: '#0EA5E9',
   },
   {
     value: '3 sem.',
-    label: 'de briefing a sitio lanzado con tráfico desde día 1',
-    context: 'Diseño y desarrollo web · Consultoría de RRHH · España',
+    label: 'Velocidad de Lanzamiento',
+    context: 'De briefing a sitio con tráfico activo. Diseño y desarrollo web B2B.',
     color: '#2563EB',
   },
 ]
@@ -66,33 +66,17 @@ export default function Metrics() {
             {metrics.map((m, i) => (
               <div
                 key={i}
-                className="card"
-                style={{ padding: '32px', position: 'relative', overflow: 'hidden' }}
+                className="p-6 bg-slate-900/30 border-t border-cyan-500/30 rounded-lg backdrop-blur-sm text-center md:text-left group hover:bg-slate-900/50 transition-colors"
               >
-                {/* Glow */}
-                <div
-                  aria-hidden="true"
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '3px',
-                    background: `linear-gradient(90deg, ${m.color} 0%, transparent 100%)`,
-                  }}
-                />
-
-                <div className="text-5xl lg:text-7xl font-bold font-mono text-[var(--color-accent-cyan)] mb-3">
+                <div className="text-slate-500 uppercase tracking-widest text-xs font-semibold mb-2">
+                  {m.label}
+                </div>
+                <div className="font-mono text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 mb-1">
                   {m.value}
                 </div>
-
-                <p style={{ color: '#F0F4F8', fontWeight: 500, fontSize: '1rem', lineHeight: 1.4, marginBottom: '12px' }}>
-                  {m.label}
-                </p>
-
-                <p className="text-sm text-[var(--color-text-secondary)] max-w-xs">
+                <div className="text-slate-400 text-sm">
                   {m.context}
-                </p>
+                </div>
               </div>
             ))}
           </div>

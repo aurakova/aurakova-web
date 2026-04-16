@@ -114,16 +114,29 @@ export default function Hero() {
           </div>
 
           {/* Right: Imagen visual */}
-          <div className="hidden lg:block lg:col-span-5 relative">
+          <div className="lg:col-span-5 relative w-full">
             <div className="absolute -inset-4 bg-[var(--color-accent-cyan)]/10 blur-3xl rounded-3xl" />
+            
+            {/* Imagen Vertical - Solo visible en Móvil (< 768px) */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/agencia-ia-automatizacion-b2b.avif"
+              alt="Auditoría y automatización de procesos IA para empresas B2B"
+              className="block md:hidden w-full h-[500px] object-cover rounded-2xl border border-[var(--color-border)] relative z-10"
+              loading="eager"
+              width={1080}
+              height={1920}
+            />
+
+            {/* Imagen Horizontal - Solo visible en Desktop (> 768px) */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/agencia-automatizacion-ai-ia.avif"
               alt="Operación B2B optimizada con IA"
-              className="rounded-2xl border border-[var(--color-border)] w-full h-auto object-cover relative z-10"
+              className="hidden md:block w-full h-[600px] object-cover rounded-2xl border border-[var(--color-border)] relative z-10"
               loading="eager"
-              width={600}
-              height={400}
+              width={1920}
+              height={1080}
             />
           </div>
         </div>

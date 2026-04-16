@@ -1,6 +1,4 @@
-'use client'
-
-import { useState } from 'react'
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
@@ -40,106 +38,38 @@ const faqSchema = {
 }
 
 export default function FAQ() {
-  const [open, setOpen] = useState<number | null>(null)
-
   return (
-    <section id="faq" className="section-primary section-py">
+    <section id="faq" className="py-24 bg-slate-950 relative">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <div className="container">
-        <div style={{ marginBottom: '56px' }}>
-          <h2>Preguntas frecuentes sobre consultoría de IA para empresas B2B</h2>
-          <p style={{ color: '#94A3B8', marginTop: '12px', maxWidth: '520px', fontSize: '1.0625rem' }}>
+      <div className="container mx-auto px-4 max-w-4xl relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Preguntas frecuentes sobre consultoría de IA para empresas B2B</h2>
+          <p className="text-slate-400 text-lg mx-auto" style={{ maxWidth: '520px' }}>
             Si tienes una pregunta que no ves aquí, el diagnóstico gratuito es el mejor lugar para resolverla.
           </p>
         </div>
 
-        <div style={{ maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          {faqs.map((faq, i) => {
-            const isOpen = open === i
-            return (
-              <div
-                key={i}
-                className="card"
-                style={{
-                  borderColor: isOpen ? '#22D3EE40' : '#1A2535',
-                  transition: 'border-color 0.2s ease',
-                  overflow: 'hidden',
-                }}
-              >
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  style={{
-                    width: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    gap: '16px',
-                    padding: '20px 24px',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                  }}
-                >
-                  <h3
-                    style={{
-                      fontSize: '1rem',
-                      fontWeight: 600,
-                      color: isOpen ? '#F0F4F8' : '#94A3B8',
-                      lineHeight: 1.4,
-                      transition: 'color 0.2s ease',
-                    }}
-                  >
-                    {faq.q}
-                  </h3>
-                  <span
-                    style={{
-                      width: '24px',
-                      height: '24px',
-                      borderRadius: '50%',
-                      background: isOpen ? 'rgba(34,211,238,0.12)' : 'rgba(255,255,255,0.04)',
-                      border: `1px solid ${isOpen ? '#22D3EE40' : '#1A2535'}`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                      color: isOpen ? '#22D3EE' : '#64748B',
-                      fontSize: '1rem',
-                      transition: 'all 0.2s ease',
-                      transform: isOpen ? 'rotate(45deg)' : 'none',
-                    }}
-                  >
-                    +
-                  </span>
-                </button>
+        <div className="flex flex-col gap-4">
+          {faqs.map((faq, i) => (
+            <details key={i} className="group bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden transition-all duration-300 open:bg-slate-900/60 open:border-cyan-500/30">
+              {/* Header / Pregunta */}
+              <summary className="flex justify-between items-center p-6 cursor-pointer hover:bg-slate-800/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                <span className="text-white font-semibold pr-4">
+                  {faq.q}
+                </span>
+                <ChevronDown className="w-5 h-5 text-cyan-400 transition-transform duration-300 group-open:rotate-180 flex-shrink-0" />
+              </summary>
 
-                <div
-                  style={{
-                    maxHeight: isOpen ? '400px' : '0',
-                    overflow: 'hidden',
-                    transition: 'max-height 0.3s ease',
-                  }}
-                >
-                  <div
-                    style={{
-                      padding: '0 24px 24px',
-                      borderTop: '1px solid #0D1620',
-                      paddingTop: '16px',
-                    }}
-                  >
-                    <p style={{ color: '#94A3B8', fontSize: '0.9375rem', lineHeight: 1.7 }}>
-                      {faq.a}
-                    </p>
-                  </div>
-                </div>
+              {/* Contenido / Respuesta */}
+              <div className="px-6 pb-6 text-slate-400 leading-relaxed border-t border-slate-800/50 pt-4 mt-2 mx-6">
+                {faq.a}
               </div>
-            )
-          })}
+            </details>
+          ))}
         </div>
       </div>
     </section>

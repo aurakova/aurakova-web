@@ -151,59 +151,58 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                   <div className="form-group">
                     <label htmlFor="name" className="form-label">Tu nombre</label>
-                    <input type="text" id="name" name="name" required className="form-input" placeholder="Ej. Javier Gómez" />
+                    <input type="text" id="name" name="name" required className="w-full bg-slate-900/60 border border-slate-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 backdrop-blur-md transition-all placeholder:text-slate-400" placeholder="Ej. Javier Gómez" />
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="company" className="form-label">Nombre de tu empresa</label>
-                    <input type="text" id="company" name="company" required className="form-input" placeholder="Ej. Acme Corp" />
+                    <input type="text" id="company" name="company" required className="w-full bg-slate-900/60 border border-slate-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 backdrop-blur-md transition-all placeholder:text-slate-400" placeholder="Ej. Acme Corp" />
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }} className="form-row">
                     <div className="form-group">
                       <label htmlFor="size" className="form-label">Tamaño de empresa</label>
-                      <select id="size" name="size" required className="form-select" defaultValue="">
-                        <option value="" disabled>Selecciona una opción</option>
-                        <option value="1-10">1–10 empleados</option>
-                        <option value="11-50">11–50 empleados</option>
-                        <option value="51-200">51–200 empleados</option>
-                        <option value="201-500">201–500 empleados</option>
-                        <option value="500+">Más de 500 empleados</option>
+                      <select id="size" name="size" required className="w-full bg-slate-900/60 border border-slate-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 backdrop-blur-md transition-all placeholder:text-slate-400" defaultValue="">
+                        <option value="" disabled className="text-slate-400">Selecciona una opción</option>
+                        <option value="1-10" className="bg-slate-900 text-white">1–10 empleados</option>
+                        <option value="11-50" className="bg-slate-900 text-white">11–50 empleados</option>
+                        <option value="51-200" className="bg-slate-900 text-white">51–200 empleados</option>
+                        <option value="201-500" className="bg-slate-900 text-white">201–500 empleados</option>
+                        <option value="500+" className="bg-slate-900 text-white">Más de 500 empleados</option>
                       </select>
                     </div>
 
                     <div className="form-group">
                       <label htmlFor="country" className="form-label">País</label>
-                      <select id="country" name="country" required className="form-select" defaultValue="">
-                        <option value="" disabled>Selecciona tu país</option>
-                        <option value="es">España</option>
-                        <option value="mx">México</option>
-                        <option value="ar">Argentina</option>
-                        <option value="co">Colombia</option>
-                        <option value="cl">Chile</option>
-                        <option value="pe">Perú</option>
-                        <option value="otro">Otro</option>
+                      <select id="country" name="country" required className="w-full bg-slate-900/60 border border-slate-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 backdrop-blur-md transition-all placeholder:text-slate-400" defaultValue="">
+                        <option value="" disabled className="text-slate-400">Selecciona tu país</option>
+                        <option value="es" className="bg-slate-900 text-white">España</option>
+                        <option value="mx" className="bg-slate-900 text-white">México</option>
+                        <option value="ar" className="bg-slate-900 text-white">Argentina</option>
+                        <option value="co" className="bg-slate-900 text-white">Colombia</option>
+                        <option value="cl" className="bg-slate-900 text-white">Chile</option>
+                        <option value="pe" className="bg-slate-900 text-white">Perú</option>
+                        <option value="otro" className="bg-slate-900 text-white">Otro</option>
                       </select>
                     </div>
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="challenge" className="form-label">Principal desafío</label>
-                    <select id="challenge" name="challenge" required className="form-select" defaultValue="">
-                      <option value="" disabled>¿Qué buscas resolver?</option>
-                      <option value="auto">Quiero automatizar procesos manuales en mi operación</option>
-                      <option value="leads">Necesito generar más leads cualificados con menor coste</option>
-                      <option value="strategy">Quiero una estrategia de IA pero no sé por dónde empezar</option>
-                      <option value="failed">Intenté implementar IA y no funcionó como esperaba</option>
-                      <option value="other">Otro</option>
+                    <select id="challenge" name="challenge" required className="w-full bg-slate-900/60 border border-slate-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 backdrop-blur-md transition-all placeholder:text-slate-400" defaultValue="">
+                      <option value="" disabled className="text-slate-400">¿Qué buscas resolver?</option>
+                      <option value="auto" className="bg-slate-900 text-white">Quiero automatizar procesos manuales en mi operación</option>
+                      <option value="leads" className="bg-slate-900 text-white">Necesito generar más leads cualificados con menor coste</option>
+                      <option value="strategy" className="bg-slate-900 text-white">Quiero una estrategia de IA pero no sé por dónde empezar</option>
+                      <option value="failed" className="bg-slate-900 text-white">Intenté implementar IA y no funcionó como esperaba</option>
+                      <option value="other" className="bg-slate-900 text-white">Otro</option>
                     </select>
                   </div>
 
                   <button
                     type="submit"
-                    className="btn-primary"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-3 px-6 rounded-xl hover:brightness-110 hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:-translate-y-0.5 mt-3"
                     disabled={loading}
-                    style={{ marginTop: '12px', width: '100%', fontSize: '1rem', padding: '16px' }}
                   >
                     {loading ? 'Enviando...' : 'Solicitar diagnóstico gratuito'}
                   </button>
