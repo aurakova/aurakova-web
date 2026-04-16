@@ -82,19 +82,7 @@ export default function Metrics() {
                   }}
                 />
 
-                <div
-                  className="gradient-text"
-                  style={{
-                    fontSize: '3rem',
-                    fontWeight: 700,
-                    lineHeight: 1,
-                    marginBottom: '12px',
-                    background: `linear-gradient(135deg, ${m.color} 0%, ${i === 0 ? '#2563EB' : i === 1 ? '#22D3EE' : '#22D3EE'} 100%)`,
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
+                <div className="text-5xl lg:text-7xl font-bold font-mono text-[var(--color-accent-cyan)] mb-3">
                   {m.value}
                 </div>
 
@@ -102,7 +90,7 @@ export default function Metrics() {
                   {m.label}
                 </p>
 
-                <p style={{ color: '#64748B', fontSize: '0.8125rem', lineHeight: 1.5 }}>
+                <p className="text-sm text-[var(--color-text-secondary)] max-w-xs">
                   {m.context}
                 </p>
               </div>

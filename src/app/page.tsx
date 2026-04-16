@@ -26,6 +26,8 @@ export default function Home() {
         {/* §2 Logos */}
         <Logos />
         
+        <div className="h-px bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/30 to-transparent" />
+        
         {/* §3 Servicios */}
         <Services />
         

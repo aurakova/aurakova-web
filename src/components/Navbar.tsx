@@ -32,9 +32,9 @@ export default function Navbar() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo.svg"
+            src="/Aurakova-logo-horiz.svg"
             alt="Aurakova"
-            style={{ height: '36px', width: 'auto' }}
+            className="w-36 h-auto"
           />
         </a>
 

@@ -27,17 +27,9 @@ export default function Hero() {
       />
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '48px',
-            alignItems: 'center',
-          }}
-          className="hero-grid"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: text */}
-          <div style={{ maxWidth: '720px' }}>
+          <div className="lg:col-span-7" style={{ maxWidth: '720px' }}>
             {/* Badge */}
             <div style={{ marginBottom: '24px' }}>
               <span className="badge">
@@ -121,109 +113,23 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Process visual — hidden on mobile */}
-          <div className="hero-visual" aria-hidden="true">
-            <div className="card" style={{ padding: '32px', position: 'relative' }}>
-              <div
-                style={{
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  color: '#22D3EE',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  marginBottom: '24px',
-                }}
-              >
-                El método Aurakova
-              </div>
-              {[
-                { week: 'Sem. 1–2', step: 'Diagnóstico', desc: 'Mapeamos procesos y detectamos las 3 oportunidades de mayor impacto', color: '#22D3EE' },
-                { week: 'Sem. 3–6', step: 'Piloto', desc: 'Construimos el flujo automatizado con tus herramientas actuales', color: '#0EA5E9' },
-                { week: 'Sem. 7–8', step: 'Medición', desc: 'Datos reales. Si funcionó, escalamos. Si no, te lo decimos.', color: '#2563EB' },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  style={{
-                    display: 'flex',
-                    gap: '16px',
-                    marginBottom: i < 2 ? '20px' : 0,
-                    paddingBottom: i < 2 ? '20px' : 0,
-                    borderBottom: i < 2 ? '1px solid #1A2535' : 'none',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '8px',
-                      borderRadius: '4px',
-                      flexShrink: 0,
-                      background: item.color,
-                      opacity: 0.8,
-                    }}
-                  />
-                  <div>
-                    <span
-                      className="mono-tag"
-                      style={{ display: 'block', marginBottom: '4px' }}
-                    >
-                      {item.week}
-                    </span>
-                    <span
-                      style={{
-                        display: 'block',
-                        fontWeight: 600,
-                        color: '#F0F4F8',
-                        marginBottom: '4px',
-                        fontSize: '0.9375rem',
-                      }}
-                    >
-                      {item.step}
-                    </span>
-                    <span style={{ fontSize: '0.8125rem', color: '#64748B', lineHeight: 1.5 }}>
-                      {item.desc}
-                    </span>
-                  </div>
-                </div>
-              ))}
-
-              <div
-                style={{
-                  marginTop: '24px',
-                  paddingTop: '20px',
-                  borderTop: '1px solid #1A2535',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                }}
-              >
-                <span
-                  style={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    background: '#10B981',
-                    display: 'inline-block',
-                    flexShrink: 0,
-                  }}
-                />
-                <span style={{ fontSize: '0.8125rem', color: '#94A3B8' }}>
-                  ROI medible antes de comprometer más
-                </span>
-              </div>
-            </div>
+          {/* Right: Imagen visual */}
+          <div className="hidden lg:block lg:col-span-5 relative">
+            <div className="absolute -inset-4 bg-[var(--color-accent-cyan)]/10 blur-3xl rounded-3xl" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/agencia-automatizacion-ai-ia.avif"
+              alt="Operación B2B optimizada con IA"
+              className="rounded-2xl border border-[var(--color-border)] w-full h-auto object-cover relative z-10"
+              loading="eager"
+              width={600}
+              height={400}
+            />
           </div>
         </div>
       </div>
 
-      <style>{`
-        @media (min-width: 1024px) {
-          .hero-grid {
-            grid-template-columns: 7fr 5fr !important;
-          }
-        }
-        @media (max-width: 1023px) {
-          .hero-visual { display: none; }
-        }
-      `}</style>
+
     </section>
   )
 }
